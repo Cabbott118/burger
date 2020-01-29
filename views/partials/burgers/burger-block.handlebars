@@ -2,7 +2,7 @@
 	<span>{{burger_name}}</span>
 
 	<button class="changeStatus" data-id="{{id}}" data-newStatus="{{devour}}">
-		{{#if devour}}Order Ready!{{else}}Order Another!{{/if}}
+		{{#if devour}}Take Burger!{{else}}Order One!{{/if}}
 	</button>
 
 	{{#unless devour}}<button class="deleteBurger" data-id="{{this.id}}">DELETE BURGER!</button>{{/unless}}

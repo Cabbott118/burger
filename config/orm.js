@@ -36,8 +36,8 @@ function printQuestionMarks(num) {
   }
 
   var orm = {
-    selectAll: function(tableInput, cb) {
-      var queryString = "SELECT * FROM " + tableInput + ";";
+    selectAll: function(table, cb) {
+      var queryString = "SELECT * FROM " + table + ";";
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
@@ -61,38 +61,40 @@ function printQuestionMarks(num) {
         if (err) {
           throw err;
         }
-  
+        console.log(result);
         cb(result);
       });
     },
 
-    updateOne: function(table, objColVals, condition, cb) {
+    updateOne: function(table, burgerVals, id, cb) {
       var queryString = "UPDATE " + table;
   
       queryString += " SET ";
-      queryString += objToSql(objColVals);
+      queryString += objToSql(burgerVals);
       queryString += " WHERE ";
-      queryString += condition;
+      queryString += id;
   
       console.log(queryString);
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
         }
-  
+        console.log(result);
         cb(result);
       });
     },
-    deleteOne: function(table, condition, cb) {
+
+    deleteOne: function(table, id, cb) {
       var queryString = "DELETE FROM " + table;
       queryString += " WHERE ";
-      queryString += condition;
+      queryString += id;
   
       connection.query(queryString, function(err, result) {
         if (err) {
+          console.log("Big ol error")
           throw err;
         }
-  
+        console.log(result);
         cb(result);
       });
     }
