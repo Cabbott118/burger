@@ -17,15 +17,15 @@ var burger = {
   },
 
   // Update
-  updateOne: function (burgerVals, id, cb) {
-    orm.updateOne("burgers", burgerVals, id, function (res) {
+  updateOne: function (burgerVals, condition, cb) {
+    orm.updateOne("burgers", burgerVals, condition, function (res) {
       cb(res);
     });
   },
 
   // Delete
-  deleteOne: function (id, cb) {
-    orm.deleteOne("burgers", id, function (res) {
+  deleteOne: function (condition, cb) {
+    orm.deleteOne("burgers", condition, function (res) {
       cb(res);
     });
   }

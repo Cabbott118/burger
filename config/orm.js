@@ -61,33 +61,33 @@ function printQuestionMarks(num) {
         if (err) {
           throw err;
         }
-        console.log(result);
+        // console.log(result);
         cb(result);
       });
     },
 
-    updateOne: function(table, burgerVals, id, cb) {
+    updateOne: function(table, burgerVals, condition, cb) {
       var queryString = "UPDATE " + table;
   
       queryString += " SET ";
       queryString += objToSql(burgerVals);
       queryString += " WHERE ";
-      queryString += id;
+      queryString += condition;
   
       console.log(queryString);
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
         }
-        console.log(result);
+        // console.log(result);
         cb(result);
       });
     },
 
-    deleteOne: function(table, id, cb) {
+    deleteOne: function(table, condition, cb) {
       var queryString = "DELETE FROM " + table;
       queryString += " WHERE ";
-      queryString += id;
+      queryString += condition;
   
       connection.query(queryString, function(err, result) {
         if (err) {

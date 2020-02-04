@@ -1,6 +1,7 @@
 var express = require("express");
-var router = express.Router();
 var burger = require("../models/burger.js");
+var router = express.Router();
+
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
@@ -17,6 +18,7 @@ router.get("/", function(req, res) {
     burger.insertOne([
       "burger_name", "devoured"
     ], [
+      // burger_name to name
       req.body.burger_name, req.body.devoured
     ], function(result) {
       // Send back the ID of the new quote
